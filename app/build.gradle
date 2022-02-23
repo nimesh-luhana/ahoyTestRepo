@@ -1,0 +1,64 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+
+}
+
+android {
+    compileSdk 31
+
+    defaultConfig {
+        applicationId "com.interview.ahoy"
+        minSdk 21
+        targetSdk 31
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    flavorDimensions "server-api"
+    productFlavors {
+        api1 {
+            dimension "server-api"
+            versionNameSuffix ".api1"
+        }
+        api2 {
+            dimension "server-api"
+            versionNameSuffix ".api2"
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+        useIR = true
+    }
+
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+}
+
+dependencies {
+
+    //WEATHER DETAILS MODULE
+    implementation(project(":weather-details"))
+    implementation(project(":common"))
+    implementation(project(":settings"))
+
+
+}

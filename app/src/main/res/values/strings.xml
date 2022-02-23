@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Ahoy Test Project</string>
+
+    //HOME
+    //BOTTOM MENU
+    <string name="favs">Favs</string>
+    <string name="home">Home</string>
+    <string name="settings">Settings</string>
+</resources>
